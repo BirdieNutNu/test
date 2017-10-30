@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffff"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/text_deposit_title_confirm_transaction"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:layout_marginTop="20dp"
+        android:paddingLeft="16dp"
+        android:text="Edit New Task"
+        android:textColor="#33BAFF"
+        android:textSize="25sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingLeft="16dp"
+        android:text="To Do"
+        android:textColor="#33BAFF"
+        android:textSize="20dp" />
+
+
+    <EditText
+        android:id="@+id/inputTopicChange"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Add new To Do task"
+        android:inputType="text"
+        android:maxLength="30"
+        android:paddingLeft="16dp"
+        android:textColor="#000000"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+        android:paddingLeft="16dp"
+        android:text="Notes"
+        android:textSize="20dp" />
+
+
+    <EditText
+        android:id="@+id/inputContentChange"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Give priority"
+        android:inputType="text"
+        android:maxLength="30"
+        android:paddingLeft="16dp"
+        android:textColor="#000000"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+
+    <!--<TextView-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_marginTop="20dp"-->
+    <!--android:paddingLeft="16dp"-->
+    <!--android:text="Priority"-->
+    <!--android:textColor="#33BAFF"-->
+    <!--android:textSize="30dp"-->
+    <!--android:textStyle="bold" />-->
+
+    <!--<RadioGroup-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_marginTop="2dp"-->
+    <!--android:orientation="horizontal">-->
+
+    <!--<RadioButton-->
+
+    <!--android:id="@+id/radio_button_high"-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_marginLeft="20dp"-->
+    <!--android:text="High"-->
+    <!--android:textSize="20dp" />-->
+
+    <!--<RadioButton-->
+    <!--android:id="@+id/radio_button_normal"-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:text="Normal"-->
+    <!--android:textSize="20dp" />-->
+
+    <!--<RadioButton-->
+    <!--android:id="@+id/radio_button_low"-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:text="Low"-->
+    <!--android:textSize="20dp" />-->
+
+
+    <!--</RadioGroup>-->
+
+
+    <!--<android.support.design.widget.TextInputLayout-->
+    <!--android:id="@+id/text_field_completed"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content">-->
+
+    <!--<TextView-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_marginTop="2dp"-->
+    <!--android:paddingLeft="16dp"-->
+    <!--android:text="Task Status"-->
+    <!--android:textColor="#33BAFF"-->
+    <!--android:textSize="30dp"-->
+    <!--android:textStyle="bold" />-->
+
+    <!--<CheckBox-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_gravity="center_horizontal"-->
+    <!--android:text="Completed?"-->
+    <!--android:textSize="20dp" />-->
+    <!--</android.support.design.widget.TextInputLayout>-->
+
+    <LinearLayout
+        android:paddingTop="40dp"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="120dp"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/button_cancelChanged"
+            android:layout_width="wrap_content"
+            android:layout_height="60dp"
+            android:background="#ffff"
+            android:text="Cancel"
+            android:textSize="22sp" />
+
+        <Button
+            android:id="@+id/button_saveChanged"
+            android:layout_width="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_height="60dp"
+            android:layout_centerHorizontal="true"
+            android:background="#ffff"
+            android:text="Save"
+            android:textColor="#33BAFF"
+            android:textSize="22sp" />
+
+    </LinearLayout>
+
+
+</LinearLayout>

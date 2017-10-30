@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:paddingTop="20dp">
+
+        <TextView
+            android:id="@+id/header"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:text="          Note To Do      "
+            android:textColor="#000000"
+            android:textSize="30dp"
+            android:textStyle="bold" />
+
+        <View
+            android:id="@+id/line"
+            android:layout_width="match_parent"
+            android:layout_height="1sp"
+            android:layout_below="@+id/header"
+            android:paddingTop="20dp">
+
+        </View>
+
+        <TextView
+            android:id="@+id/viewTopic"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/line"
+            android:paddingTop="20dp"
+            android:text="header : "
+            android:textColor="#ff000000"
+            android:textSize="20dp" />
+
+        <TextView
+            android:id="@+id/viewContent"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/viewTopic"
+            android:paddingLeft="10dp"
+            android:paddingTop="10dp"
+            android:text="content" />
+
+        <!--<Button-->
+            <!--android:id="@+id/buttonOk"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_alignParentRight="true"-->
+            <!--android:layout_below="@+id/viewContent"-->
+            <!--android:layout_marginTop="20dp"-->
+            <!--android:background="#ff33BAFF"-->
+            <!--android:text="Ok" />-->
+    </RelativeLayout>
+</LinearLayout>

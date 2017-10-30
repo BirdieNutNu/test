@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffff"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/text_deposit_title_confirm_transaction"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:layout_marginTop="20dp"
+        android:paddingLeft="16dp"
+        android:text="Add New Task"
+        android:textColor="#33BAFF"
+        android:textSize="25sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingLeft="16dp"
+        android:text="To Do"
+        android:textColor="#33BAFF"
+        android:textSize="20dp" />
+
+
+    <EditText
+        android:id="@+id/inputTopic"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Add new To Do task"
+        android:inputType="text"
+        android:maxLength="30"
+        android:paddingLeft="16dp"
+        android:textColor="#000000"
+        android:textSize="20sp" />
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+        android:paddingLeft="16dp"
+        android:text="Notes"
+        android:textSize="20dp" />
+
+
+    <EditText
+        android:id="@+id/inputContent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Give priority"
+        android:inputType="text"
+        android:maxLength="30"
+        android:paddingLeft="16dp"
+        android:textColor="#000000"
+        android:textSize="20sp"
+        />
+
+
+    <!--<TextView-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_marginTop="10dp"-->
+        <!--android:paddingLeft="16dp"-->
+        <!--android:text="Priority"-->
+        <!--android:textColor="#33BAFF"-->
+        <!--android:textSize="20dp"-->
+        <!--android:textStyle="bold" />-->
+
+    <!--<RadioGroup-->
+        <!--android:id="@+id/radioGroup"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_marginTop="2dp"-->
+        <!--android:orientation="horizontal"-->
+        <!--android:paddingTop="5dp"-->
+
+        <!--&gt;-->
+
+        <!--<RadioButton-->
+
+            <!--android:id="@+id/radio_button_high"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_marginLeft="20dp"-->
+            <!--android:checked="true"-->
+            <!--android:text="High"-->
+            <!--android:textColorHint="#00ffff"-->
+            <!--android:textSize="15dp" />-->
+
+        <!--<RadioButton-->
+            <!--android:id="@+id/radio_button_normal"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:text="Normal"-->
+            <!--android:textColorHint="#ff00ff"-->
+            <!--android:textSize="15dp" />-->
+
+        <!--<RadioButton-->
+            <!--android:id="@+id/radio_button_low"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:text="Low"-->
+            <!--android:textColorHint="#ffff00"-->
+            <!--android:textSize="15dp" />-->
+
+
+    <!--</RadioGroup>-->
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="2dp"
+        android:paddingBottom="20dp"
+        android:paddingLeft="16dp"
+        android:paddingTop="5dp"
+        android:text="Task Status"
+        android:textColor="#33BAFF"
+        android:textSize="20dp"
+        android:textStyle="bold" />
+
+    <CheckBox
+        android:id="@+id/checkbox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:text="Completed?"
+        android:textSize="15dp" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="120dp"
+        android:orientation="horizontal"
+        android:paddingTop="20dp">
+
+        <Button
+            android:id="@+id/button_cancel"
+            android:layout_width="wrap_content"
+            android:layout_height="60dp"
+            android:background="#ffff"
+            android:text="Cancel"
+            android:textSize="15sp" />
+
+        <Button
+            android:id="@+id/button_save"
+            android:layout_width="wrap_content"
+            android:layout_height="60dp"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:background="#ffff"
+            android:text="Save"
+            android:textColor="#33BAFF"
+            android:textSize="15sp" />
+
+    </LinearLayout>
+
+
+</LinearLayout>
