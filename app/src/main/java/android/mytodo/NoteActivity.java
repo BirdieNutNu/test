@@ -34,8 +34,8 @@ public class NoteActivity extends AppCompatActivity {
 
         NoteFragment noteFragment = new NoteFragment(); // create fragment
         Bundle bundle = new Bundle();
-        bundle.putString(VIEW_TOPIC, top);
-        bundle.putString(VIEW_CONTENT, con);
+        bundle.putString("topic", top);
+        bundle.putString("content", con);
         bundle.putInt("position", position);
         noteFragment.setArguments(bundle);
 

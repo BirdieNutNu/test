@@ -56,8 +56,8 @@ public class NoteFragment extends Fragment {
         itemsListAdapter = new ItemsListAdapter(itemsArrayList, getContext(), this, getFragmentManager());
 
         Bundle bundle = getArguments();
-        String topic = bundle.getString(VIEW_TOPIC);
-        String content = bundle.getString(VIEW_CONTENT);
+        String topic = bundle.getString("topic");
+        String content = bundle.getString("content");
 
         topicView.setText(topic);
         contentView.setText(content);
@@ -88,9 +88,14 @@ public class NoteFragment extends Fragment {
     private void editNote() {
         DialogFragment dialogFragment = new EditDialog();
         Bundle arg = getArguments();
-        arg.getInt("position");
-        arg.getString(VIEW_TOPIC);
-        arg.getString(VIEW_CONTENT);
+        int position1 = arg.getInt("position");
+        String topic1 = arg.getString("topic");
+        String content1 = arg.getString("content");
+
+        Intent intent = new Intent();
+        intent.putExtra("position",position1);
+        intent.putExtra("content",content1);
+        intent.putExtra("topic",topic1);
 
         dialogFragment.setArguments(arg);
         dialogFragment.setTargetFragment(this, 8);
@@ -119,15 +124,20 @@ public class NoteFragment extends Fragment {
             case 8:
                 if (resultCode == Activity.RESULT_OK) {
 
-                    Bundle arg = getArguments();
-                    int position = arg.getInt("position");
-                    String content = arg.getString(VIEW_CONTENT);
+                    Intent intent = getActivity().getIntent();
+                    int position1 = intent.getIntExtra("position", 0);
+                    String topic1 = intent.getStringExtra("topic");
+                    String content1 = intent.getStringExtra("content");
 
-                    String topic = arg.getString(VIEW_TOPIC);
-                    Intent intent = new Intent();
-                    intent.putExtra("position1", position);
-                    intent.putExtra("topic1", topic);
-                    intent.putExtra("content1", content);
+//                    Bundle arg = getArguments();
+//                    int position = arg.getInt("position");
+//                    String content = arg.getString("content");
+//                    String topic = arg.getString("topic");
+
+
+                    intent.putExtra("position", position1);
+                    intent.putExtra("topic", topic1);
+                    intent.putExtra("content", content1);
                     getActivity().setResult(Activity.RESULT_FIRST_USER, intent);
                     getActivity().finish();
 

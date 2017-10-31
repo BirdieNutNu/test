@@ -1,8 +1,11 @@
 package android.mytodo;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.annotation.Nullable;
 import android.support.v4.app.DialogFragment;
 import android.support.v4.app.Fragment;
@@ -54,7 +57,10 @@ public class MainFragment extends Fragment implements View.OnClickListener {
         itemsArrayList.add(new Items("Test 2", "write Something 2"));
         itemsArrayList.add(new Items("Test 3", "write Something 3"));
         itemsArrayList.add(new Items("Test 4", "write Something 4"));
-        itemsArrayList.add(new Items("Test 5", "write Something 5"));
+        itemsArrayList.add(new Items("Test 566", "write Something 5666"));
+
+
+
         listAdapter = new ItemsListAdapter(itemsArrayList, getContext(), this, getFragmentManager());
         listView.setAdapter(listAdapter);
 
@@ -63,11 +69,12 @@ public class MainFragment extends Fragment implements View.OnClickListener {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
                 Items i = itemsArrayList.get(position);
+
                 Intent intent = new Intent(getContext(), NoteActivity.class);
                 intent.putExtra(TOPICVIEW, i.getTopic());
                 intent.putExtra(CONTENTVIEW, i.getContent());
                 intent.putExtra("position", position);
-                Log.d("positionMF", "" + position);
+//                Log.d("positionMF", "" + position);
                 startActivityForResult(intent, 5);
 
             }
@@ -88,23 +95,7 @@ public class MainFragment extends Fragment implements View.OnClickListener {
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
 
         switch (requestCode) {
-            case 5:
-                if(resultCode == Activity.RESULT_OK) {
-                    int position1 = data.getIntExtra("position1", -12);
-                    itemsArrayList.remove(position1);
-                    listAdapter.notifyDataSetChanged();
-                    break;
-                }
-               else if (resultCode == Activity.RESULT_FIRST_USER) {
-                    int position = data.getIntExtra("position1", -3);
-                    String topic = data.getStringExtra("topic1");
-                    String content = data.getStringExtra("content1");
-                    Toast.makeText(getContext(), "position : " + position + "topic : " + topic + "content : " + content, Toast.LENGTH_LONG).show();
-                    Items items = itemsArrayList.get(position);
-                    items.setTopic(topic);
-                    items.setContent(content);
-                    break;
-                }
+
             case 2:  //add
                 if (resultCode == Activity.RESULT_OK) {
                     itemsArrayList.add(new Items(data.getStringExtra(TOPIC), data.getStringExtra(CONTENT)));
@@ -113,7 +104,7 @@ public class MainFragment extends Fragment implements View.OnClickListener {
                 }
             case 3:   //delete
                 if (resultCode == Activity.RESULT_OK) {
-                    int position = data.getIntExtra("position", -2);
+                    int position = data.getIntExtra("position", -1);
                     itemsArrayList.remove(position);
                     listAdapter.notifyDataSetChanged();
                     break;
@@ -121,14 +112,15 @@ public class MainFragment extends Fragment implements View.OnClickListener {
             case 4:   //edit
                 if (resultCode == Activity.RESULT_OK) {
 
-                    int position = data.getIntExtra("position", -13);
+
+                    int position = data.getIntExtra("position", -2);
                     String topic = data.getStringExtra("topic"); //pass by ref as topic from editDialog
                     String content = data.getStringExtra("content"); // pass by ref as content
 
 //                    Items items1 = new Items(topic,content);   //create new Items and set its position, replace it topic and content
 //                    itemsArrayList.set(position,items1);
 //                    items.setTopic("xxxxx");
-
+                    Log.d("position","positionMF" + position);
                     Items items = itemsArrayList.get(position);
                     items.setTopic(topic);
                     items.setContent(content);
@@ -136,7 +128,26 @@ public class MainFragment extends Fragment implements View.OnClickListener {
                     listAdapter.notifyDataSetChanged();
                     break;
                 }
+            case 5:
+                if (resultCode == Activity.RESULT_OK) {
+                    int position1 = data.getIntExtra("position1", -3);
+                    itemsArrayList.remove(position1);
+                    listAdapter.notifyDataSetChanged();
+                    break;
+                } else if (resultCode == Activity.RESULT_FIRST_USER) {
+
+                    int position = data.getIntExtra("position", -4);
+                    String topic = data.getStringExtra("topic");
+                    String content = data.getStringExtra("content");
+//                    Toast.makeText(getContext(), "position : " + position + "topic : " + topic + "content : " + content, Toast.LENGTH_LONG).show();
+                    Items items = itemsArrayList.get(position);
+                    items.setTopic(topic);
+                    items.setContent(content);
+                    break;
+                }
         }
 
+
     }
+
 }

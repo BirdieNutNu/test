@@ -1,10 +1,12 @@
 package android.mytodo;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v4.app.DialogFragment;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -51,6 +53,7 @@ public class ItemsListAdapter extends BaseAdapter {
 
     @Override
     public View getView(final int position, View view, ViewGroup viewGroup) {
+
         LayoutInflater inflater = (LayoutInflater) mContext.getApplicationContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 
         if (view == null) {
@@ -61,6 +64,32 @@ public class ItemsListAdapter extends BaseAdapter {
         content = view.findViewById(R.id.textContent);
         topic.setText(arrayList.get(position).getTopic());
         content.setText(arrayList.get(position).getContent());
+
+
+        final ImageButton editButton = view.findViewById(R.id.editButton);
+//        editButton.setTag(position);
+        Log.d("position","positionAdapter" + position);
+        editButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Log.d("tag","view"+  view.getTag());
+//                int position1 = Integer.parseInt(view.getTag().toString());
+                DialogFragment dialogFragment = EditDialog.newInstances();
+
+                //topic.setText(arrayList.get(position).getTopic());
+                //content.setText(arrayList.get(position).getContent());
+
+                Bundle bundle = new Bundle();
+                bundle.putInt("position", position);
+
+                bundle.putString("topic", arrayList.get(position).getTopic());
+                bundle.putString("content", arrayList.get(position).getContent());
+                Log.d("text", "topic" +topic.getText().toString());
+                dialogFragment.setArguments(bundle);
+                dialogFragment.setTargetFragment(fragment, 4);
+                dialogFragment.show(mFragmentManager, "Edit Dialog");
+            }
+        });
 
         final ImageButton deleteButton = view.findViewById(R.id.deleteButton);
         deleteButton.setOnClickListener(new View.OnClickListener() {
@@ -76,23 +105,9 @@ public class ItemsListAdapter extends BaseAdapter {
             }
         });
 
-        ImageButton editButton = view.findViewById(R.id.editButton);
-        editButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                DialogFragment dialogFragment = EditDialog.newInstances();
-
-                Bundle bundle = new Bundle();
-                bundle.putInt("position", position);
-                bundle.putString("topic", topic.getText().toString());
-                bundle.putString("content", content.getText().toString());
-                dialogFragment.setArguments(bundle);
-                dialogFragment.setTargetFragment(fragment, 4);
-                dialogFragment.show(mFragmentManager, "Edit Dialog");
-            }
-        });
 
 
         return view;
     }
+
 }

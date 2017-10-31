@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.DialogFragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,8 +19,10 @@ import android.widget.Toast;
 
 public class EditDialog extends DialogFragment implements View.OnClickListener {
 
-    public static final String TOPIC_CHANGE = "TopicChange";
-    public static final String CONTETN_CHANGE = "ContetnChange";
+//    public static final String TOPIC_CHANGE = "TopicChange";
+//    public static final String CONTETN_CHANGE = "ContetnChange";
+//    public static final String VIEW_TOPIC = "viewTopic";
+//    public static final String VIEW_CONTENT = "viewContent";
     private Button saveChangeButton;
     private Button cancelChangeButton;
     private EditText topicChange;
@@ -47,27 +50,40 @@ public class EditDialog extends DialogFragment implements View.OnClickListener {
         topicChange = v.findViewById(R.id.inputTopicChange);
         contentChange = v.findViewById(R.id.inputContentChange);
 
+
         Bundle bundle = getArguments();
         String topic = bundle.getString("topic");
         String content = bundle.getString("content");
 
+
         topicChange.setText(topic);
         contentChange.setText(content);
-
+        Log.d("topic","topic"+ topic + " content " + content);
     }
 
     @Override
     public void onClick(View view) {
         if (view.getId() == R.id.button_saveChanged) {
-
             Bundle bundle = getArguments();
+            String topic = bundle.getString("topic");
+            String content = bundle.getString("content");
             int position = bundle.getInt("position");
 
-            Intent intent = new Intent();
+            Intent intent = getActivity().getIntent();
+             intent.getIntExtra("position",position);
+            Log.d("position","positionED" + position);
+             intent.getStringExtra(topic);
+            intent.getStringExtra(content);
+
+//            Bundle bundle = getArguments();
+//            int position = bundle.getInt("position");
+//            String topic = bundle.getString("topic");
+//            String content = bundle.getString("content");
+
             intent.putExtra("content", contentChange.getText().toString());
             intent.putExtra("topic", topicChange.getText().toString());
             intent.putExtra("position", position);
-
+            Log.d("position","position"+ position + "topic"+ topic + "content"+ content);
 
             if (topicChange.getText().toString().isEmpty()) {
                 Toast.makeText(getContext(), "Please Fill Up Topic", Toast.LENGTH_SHORT).show();
