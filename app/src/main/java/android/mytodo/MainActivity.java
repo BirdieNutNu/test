@@ -23,19 +23,19 @@ public class MainActivity extends AppCompatActivity {
 
 
     }
-    @Override
-    public void onSaveInstanceState(Bundle saveInstanceState) {
-        super.onSaveInstanceState(saveInstanceState);
-
-        Items saveItem = new Items(TOPIC,CONTENT);
-        saveInstanceState.putString(SAVETOPIC,saveItem.getTopic());
-        saveInstanceState.putString(SAVE_CONTENT,saveItem.getContent());
-    }
-
-    @Override
-    protected void onRestoreInstanceState(Bundle savedInstanceState) {
-        super.onRestoreInstanceState(savedInstanceState);
-        topic = savedInstanceState.getString(SAVETOPIC);
-        content = savedInstanceState.getString(SAVE_CONTENT);
-    }
+//    @Override
+//    public void onSaveInstanceState(Bundle saveInstanceState) {
+//        super.onSaveInstanceState(saveInstanceState);
+//
+//        Items saveItem = new Items(TOPIC,CONTENT);
+//        saveInstanceState.putString(SAVETOPIC,saveItem.getTopic());
+//        saveInstanceState.putString(SAVE_CONTENT,saveItem.getContent());
+//    }
+//
+//    @Override
+//    protected void onRestoreInstanceState(Bundle savedInstanceState) {
+//        super.onRestoreInstanceState(savedInstanceState);
+//        topic = savedInstanceState.getString(SAVETOPIC);
+//        content = savedInstanceState.getString(SAVE_CONTENT);
+//    }
 }
